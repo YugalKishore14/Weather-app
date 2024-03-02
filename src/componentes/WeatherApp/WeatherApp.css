@@ -4,7 +4,7 @@
   margin: auto;
   margin-top: 75px;
   border-radius: 12px;
-  background-image: linear-gradient(180deg, #7460e8 0%, #19114b 100%);
+  background-image: linear-gradient(180deg, #fffb00 0%, #000000 100%);
 }
 .top-bar {
   display: flex;
@@ -13,11 +13,12 @@
   padding-top: 60px;
 }
 .top-bar input {
+  border: 5px solid #ccc916;
   display: flex;
   width: 360px;
   height: 70px;
   background: #ebfffc;
-  border: none;
+  /* border: none; */
   outline: none;
   border-radius: 40px;
   padding-left: 40px;
@@ -30,6 +31,7 @@
   height: 50px;
 }
 .search-icon {
+  border: 5px solid #ccc916;
   display: flex;
   justify-content: center;
   align-items: center;
