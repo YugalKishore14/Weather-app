@@ -9,7 +9,7 @@ import clear_icon from "../Assets/clear.png";
 import wind_icon from "../Assets/wind.png";
 import snow_icon from "../Assets/snow.png";
 const WeatherApp = () => {
-  const api_key = process.env.WEATHER_APP_API_KEY;
+  const api_key = ""
   const [wicon, setWicon] = useState(cloud_icon);
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
@@ -68,42 +68,55 @@ const WeatherApp = () => {
     }
   };
   return (
-    <div className="container">
-      <div className="top-bar">
-        <input type="text" className="cityInput" placeholder="search" />
-        <div
-          className="search-icon"
-          onClick={() => {
+    React.createElement(
+    "div",
+    { className: "container" },
+    React.createElement(
+      "div",
+      { className: "top-bar" },
+      React.createElement("input", { type: "text", className: "cityInput", placeholder: "search" }),
+      React.createElement(
+        "div",
+        {
+          className: "search-icon",
+          onClick: () => {
             search();
-          }}
-        >
-          <img src={images_icon} alt="error" />
-        </div>
-      </div>
-      <div className="weather-img">
-        <img src={wicon} alt="error" />
-      </div>
-
-      <div className="weather-temp">24°C</div>
-      <div className="weather-location">London</div>
-      <div className="data-container">
-        <div className="element">
-          <img src={humidity_icon} alt="" className="icon" />
-          <div className="data">
-            <div className="humidity-percent">64%</div>
-            <div className="text">Humidity</div>
-          </div>
-        </div>
-        <div className="element">
-          <img src={wind_icon} alt="error" className="icon" />
-          <div className="data">
-            <div className="wind-rate">18 Km/h</div>
-            <div className="text">Wind speed</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+          }
+        },
+        React.createElement("img", { src: images_icon, alt: "error" })
+      )
+    ),
+    React.createElement("div", { className: "weather-img" }, React.createElement("img", { src: wicon, alt: "error" })),
+    React.createElement("div", { className: "weather-temp" }, "24°C"),
+    React.createElement("div", { className: "weather-location" }, "London"),
+    React.createElement(
+      "div",
+      { className: "data-container" },
+      React.createElement(
+        "div",
+        { className: "element" },
+        React.createElement("img", { src: humidity_icon, alt: "", className: "icon" }),
+        React.createElement(
+          "div",
+          { className: "data" },
+          React.createElement("div", { className: "humidity-percent" }, "64%"),
+          React.createElement("div", { className: "text" }, "Humidity")
+        )
+      ),
+      React.createElement(
+        "div",
+        { className: "element" },
+        React.createElement("img", { src: wind_icon, alt: "error", className: "icon" }),
+        React.createElement(
+          "div",
+          { className: "data" },
+          React.createElement("div", { className: "wind-rate" }, "18 Km/h"),
+          React.createElement("div", { className: "text" }, "Wind speed")
+        )
+      )
+    )
+  )
+  )
 };
 
 export default WeatherApp;
