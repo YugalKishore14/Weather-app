@@ -171,6 +171,12 @@
 }
 
 @media (max-width: 480px) {
+  .container {
+    max-width: 90%;
+    width: 600px;
+    height: 620px;
+  }
+  
   .weather-temp {
     font-size: 50px;
   }
