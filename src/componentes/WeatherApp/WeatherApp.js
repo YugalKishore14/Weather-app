@@ -8,16 +8,17 @@ import rain_icon from "../Assets/rain.png";
 import clear_icon from "../Assets/clear.png";
 import wind_icon from "../Assets/wind.png";
 import snow_icon from "../Assets/snow.png";
+
+
 const WeatherApp = () => {
-  const api_key = ""
+  const apiKey = process.env.REACT_APP_WEATHER_API;
   const [wicon, setWicon] = useState(cloud_icon);
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
     if (element[0].value === "") {
       return 0;
     }
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${api_key}`;
-
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${apiKey}`;
     const response = await fetch(url);
     const data = await response.json();
 
@@ -69,54 +70,58 @@ const WeatherApp = () => {
   };
   return (
     React.createElement(
-    "div",
-    { className: "container" },
-    React.createElement(
       "div",
-      { className: "top-bar" },
-      React.createElement("input", { type: "text", className: "cityInput", placeholder: "search" }),
+      { className: "container" },
       React.createElement(
         "div",
-        {
-          className: "search-icon",
-          onClick: () => {
-            search();
-          }
-        },
-        React.createElement("img", { src: images_icon, alt: "error" })
-      )
-    ),
-    React.createElement("div", { className: "weather-img" }, React.createElement("img", { src: wicon, alt: "error" })),
-    React.createElement("div", { className: "weather-temp" }, "24°C"),
-    React.createElement("div", { className: "weather-location" }, "London"),
-    React.createElement(
-      "div",
-      { className: "data-container" },
-      React.createElement(
-        "div",
-        { className: "element" },
-        React.createElement("img", { src: humidity_icon, alt: "", className: "icon" }),
+        { className: "top-bar" },
+        React.createElement("input", { type: "text", className: "cityInput", placeholder: "search" }),
         React.createElement(
           "div",
-          { className: "data" },
-          React.createElement("div", { className: "humidity-percent" }, "64%"),
-          React.createElement("div", { className: "text" }, "Humidity")
+          {
+            className: "search-icon",
+            onClick: () => {
+              search();
+            }
+          },
+          React.createElement("img", { src: images_icon, alt: "error" })
         )
       ),
+      React.createElement("div", { className: "weather-img" }, React.createElement("img", { src: wicon, alt: "error" })),
+      React.createElement("div", { className: "weather-temp" }, "24°C"),
+      React.createElement("div", { className: "weather-location" }, "London"),
       React.createElement(
         "div",
-        { className: "element" },
-        React.createElement("img", { src: wind_icon, alt: "error", className: "icon" }),
+        { className: "data-container" },
         React.createElement(
           "div",
-          { className: "data" },
-          React.createElement("div", { className: "wind-rate" }, "18 Km/h"),
-          React.createElement("div", { className: "text" }, "Wind speed")
+          { className: "element" },
+          React.createElement("img", { src: humidity_icon, alt: "", className: "icon" }),
+          React.createElement(
+            "div",
+            { className: "data" },
+            React.createElement("div", { className: "humidity-percent" }, "64%"),
+            React.createElement("div", { className: "text" }, "Humidity")
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "element" },
+          React.createElement("img", { src: wind_icon, alt: "error", className: "icon" }),
+          React.createElement(
+            "div",
+            { className: "data" },
+            React.createElement("div", { className: "wind-rate" }, "18 Km/h"),
+            React.createElement("div", { className: "text" }, "Wind speed")
+          )
         )
       )
     )
   )
-  )
 };
 
 export default WeatherApp;
+
+
+
+
